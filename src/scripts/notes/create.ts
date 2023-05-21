@@ -27,12 +27,12 @@ const options: Omit<Arguments, '$0' | '_'> = {
   t: { type: 'string', describe: "specify release tag", alias: 'tag', default: 'latest' },
   o: { type: 'string', describe: "Github repository owner", alias: 'owner', demandOption: true },
   r: { type: 'string', describe: "Github repository name", alias: 'repo', demandOption: true },
-  p: { type: 'string', describe: "Release notes path", alias: 'path', demandOption: true },
+  p: { type: 'string', describe: "Release notes path", alias: 'path', default: releaseRoot },
   a: { type: 'string', describe: "Github authentication token", alias: 'auth', demandOption: true },
 }
 
 const examples: [string, string][] = [
-  [`$0 -a your-auth-token -o jamszh -r releasaurus -p ${releaseRoot}`, 'Create notes page for the latest release (single project)'],
+  [`$0 -a your-auth-token -o jamszh -r releasaurus`, 'Create notes page for the latest release (single project)'],
   [`$0 -a your-auth-token -o jamszh -r releasaurus -p ${releaseRoot}/dino-lib`, 'Create notes page for the latest release of "dino-lib"'],
   [`$0 -a your-auth-token -o jamszh -r releasaurus -p ${releaseRoot}/dino-lib -v "1.0.0"`, 'Create notes page for v1.0.0'],
 ]
