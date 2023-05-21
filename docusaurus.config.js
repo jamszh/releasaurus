@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Release Notes',
-  tagline: 'Release Notes',
+  title: 'Releasaurus',
+  tagline: 'Not as prehistoric as the name implies',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -85,7 +85,6 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/releases', label: 'Release Notes', position: 'left'},
           {to: '/docs/intro', label: 'Docusaurus', position: 'right'},
           {
@@ -97,21 +96,6 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/jamszh/releasaurus',
-              },
-            ],
-          },
-        ],
         copyright: `Copyright © ${new Date().getFullYear()} Releasaurus, Inc. Built with Docusaurus.`,
       },
       prism: {
