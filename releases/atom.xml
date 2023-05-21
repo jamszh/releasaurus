@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jamszh.github.io/releasaurus/releases</id>
-    <title>Release Notes Blog</title>
+    <title>Releasaurus Blog</title>
     <updated>2023-05-08T19:55:19.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jamszh.github.io/releasaurus/releases"/>
-    <subtitle>Release Notes Blog</subtitle>
+    <subtitle>Releasaurus Blog</subtitle>
     <icon>https://jamszh.github.io/releasaurus/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[v2.0.1-pytorch]]></title>

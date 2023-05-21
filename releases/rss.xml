@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Release Notes Blog</title>
+        <title>Releasaurus Blog</title>
         <link>https://jamszh.github.io/releasaurus/releases</link>
-        <description>Release Notes Blog</description>
+        <description>Releasaurus Blog</description>
         <lastBuildDate>Mon, 08 May 2023 19:55:19 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
