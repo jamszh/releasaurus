@@ -5,6 +5,7 @@ interface GithubRelease {
   author: {
     login: string;
     avatar_url: string;
+    html_url: string;
   }
   published_at: string;
   body?: string;
@@ -21,7 +22,7 @@ function buildMetadata(release: GithubRelease, releaseName: string, repo: string
     tags: [repo],
     authors: {
       name: release.author.login,
-      title: "Just a bot - beep boop",
+      url: release.author.html_url,
       image_url: release.author.avatar_url,
     }
   }
