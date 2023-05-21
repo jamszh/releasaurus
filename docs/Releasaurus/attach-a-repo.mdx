@@ -1,0 +1,53 @@
+---
+title: Attach a Github Repo
+sidebar_position: 2
+---
+
+### Prerequisites
+
+- Releasaurus is all setup
+- The repository you want to attach is already automatically generating releases
+
+If not, read this.
+
+### Adding a Github Workflow Action
+
+```yml title=".github/workflows/releasaurus"
+name: releasaurus
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  learn-please:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: "jamszh/releasaurus" # Update with your own fork
+        token: ${{ secrets.PAT }}
+    - name: create-branch
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git checkout -b ${{ github.event.repository.name }}
+        yarn install
+        yarn notes-please -a ${{ secrets.PAT }} -o ${{ github.org.login }} -r ${{ github.repository.name }} -p releases/${{ github.repository.name }}
+        git add releases/${{ github.repository.name}}/${{ github.event.release.tab_name}}-${{ github.repository.name}}.md
+        git commit -m "Release notes for ${{ github.event.release.tag_name }}-${{ github.repository.name }}"
+        git push -u origin ${{ github.event.repository.name }}
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        pr_title: "Release notes for ${{ github.event.release.tag_name }}-${{ github.repository.name }}"
+        pr_body: |
+          Release notes for Releasaurus
+
+          I'm a :robot:
+        source_branch: ${{ github.repository.name }}
+        destination_branch: "main"
+        github_token: ${{ secrets.PAT }}
+        destination_repository: "jamszh/releasaurus" # Update with your own fork
+        pr_allow_empty: true
+```
