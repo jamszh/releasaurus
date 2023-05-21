@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://jamszh.github.io/releaseaurus/blog</id>
+    <title>Release Notes Blog</title>
+    <updated>2023-04-27T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://jamszh.github.io/releaseaurus/blog"/>
+    <subtitle>Release Notes Blog</subtitle>
+    <icon>https://jamszh.github.io/releaseaurus/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[First Blog Post]]></title>
+        <id>https://jamszh.github.io/releaseaurus/blog/first-post</id>
+        <link href="https://jamszh.github.io/releaseaurus/blog/first-post"/>
+        <updated>2023-04-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[First post]]></summary>
+        <content type="html"><![CDATA[<p>First post</p>]]></content>
+        <author>
+            <name>James Z</name>
+            <uri>https://github.com/jamszh</uri>
+        </author>
+        <category label="starting" term="starting"/>
+    </entry>
+</feed>
