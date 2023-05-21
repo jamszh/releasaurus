@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreleasaurus=self.webpackChunkreleasaurus||[]).push([[63],{1848:e=>{e.exports=JSON.parse('{"permalink":"/releasaurus/blog/tags/starting","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

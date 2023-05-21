@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreleasaurus=self.webpackChunkreleasaurus||[]).push([[354],{7373:e=>{e.exports=JSON.parse('{"permalink":"/releaseaurus/releases","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

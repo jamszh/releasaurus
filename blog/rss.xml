@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Release Notes Blog</title>
-        <link>https://jamszh.github.io/releaseaurus/blog</link>
+        <link>https://jamszh.github.io/releasaurus/blog</link>
         <description>Release Notes Blog</description>
         <lastBuildDate>Thu, 27 Apr 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[First Blog Post]]></title>
-            <link>https://jamszh.github.io/releaseaurus/blog/first-post</link>
-            <guid>https://jamszh.github.io/releaseaurus/blog/first-post</guid>
+            <link>https://jamszh.github.io/releasaurus/blog/first-post</link>
+            <guid>https://jamszh.github.io/releasaurus/blog/first-post</guid>
             <pubDate>Thu, 27 Apr 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[First post]]></description>
             <content:encoded><![CDATA[<p>First post</p>]]></content:encoded>

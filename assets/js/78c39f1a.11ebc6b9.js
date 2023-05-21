@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreleasaurus=self.webpackChunkreleasaurus||[]).push([[936],{3639:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"v2.0.1-pytorch","permalink":"/releasaurus/releases/v2.0.1-pytorch"}]}')}}]);

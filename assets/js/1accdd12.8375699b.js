@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreleasaurus=self.webpackChunkreleasaurus||[]).push([[66],{3451:e=>{e.exports=JSON.parse('[{"label":"pytorch","permalink":"/releasaurus/releases/tags/pytorch","count":1}]')}}]);
