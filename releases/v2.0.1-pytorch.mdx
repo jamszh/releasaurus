@@ -1,0 +1,59 @@
+---
+title: v2.0.1-pytorch
+date: 2023-05-08T19:55:19Z
+tags:
+  - pytorch
+authors:
+  name: drisspg
+  url: https://github.com/drisspg
+  image_url: https://avatars.githubusercontent.com/u/32754868?v=4
+
+---
+This release is meant to fix the following issues (regressions / silent correctness):
+* Fix `_canonical_mask` throws warning when bool masks passed as input to TransformerEncoder/TransformerDecoder (#96009, #96286) 
+* Fix Embedding bag max_norm=-1 causes leaf Variable that requires grad is being used in an in-place operation #95980
+* Fix type hint for torch.Tensor.grad_fn, which can be a torch.autograd.graph.Node or None. #96804
+* Can’t convert float to int when the input is a scalar np.ndarray. #97696
+* Revisit torch._six.string_classes removal  #97863
+* Fix module backward pre-hooks to actually update gradient #97983
+* Fix load_sharded_optimizer_state_dict error on multi node #98063
+* Warn once for TypedStorage deprecation #98777
+* cuDNN V8 API, Fix incorrect use of emplace in the benchmark cache #97838
+### Torch.compile:
+* Add support for Modules with custom __getitem__ method to torch.compile #97932
+* Fix improper guards with on list variables. #97862
+* Fix Sequential nn module with duplicated submodule #98880
+### Distributed:
+*   Fix distributed_c10d's handling of custom backends #95072
+*   Fix MPI backend not properly initialized #98545
+### NN_frontend:
+* Update Multi-Head Attention's doc string #97046
+* Fix incorrect behavior of `is_causal` paremeter for torch.nn.TransformerEncoderLayer.forward #97214
+* Fix error for SDPA on sm86 and sm89 hardware #99105
+* Fix nn.MultiheadAttention mask handling  #98375
+### DataLoader:
+* Fix regression for pin_memory recursion when operating on bytes #97737
+* Fix collation logic #97789 
+* Fix Ppotentially backwards incompatible change with DataLoader and is_shardable Datapipes #97287
+### MPS:
+* Fix LayerNorm crash when input is in float16 #96208
+* Add support for cumsum on int64 input  #96733
+* Fix issue with setting BatchNorm to non-trainable #98794
+### Functorch:
+* Fix Segmentation Fault for vmaped function accessing BatchedTensor.data #97237
+* Fix index_select support when dim is negative [#97916](https://github.com/pytorch/pytorch/pull/97916)
+* Improve docs for autograd.Function support #98020
+* Fix Exception thrown when running Migration guide example for jacrev #97746
+### Releng:
+* Fix Convolutions for CUDA-11.8 wheel builds #99451
+* Fix Import torchaudio + torch.compile crashes on exit #96231
+* Linux aarch64 wheels are missing the mkldnn+acl backend support  - [https://github.com/pytorch/builder/commit/54931c264ed3e7346899f547a272c4329cc8933b](https://github.com/pytorch/builder/commit/54931c264ed3e7346899f547a272c4329cc8933b)
+* Linux aarch64 torchtext 0.15.1 wheels are missing for aarch64_linux platform - [https://github.com/pytorch/builder/issues/1375](https://github.com/pytorch/builder/issues/1375)
+* Enable ROCm 5.4.2 manywheel and python 3.11 builds #99552
+* PyTorch cannot be installed at the same time as numpy in a conda env on osx-64 / Python 3.11 #97031
+* Illegal instruction (core dumped) on Raspberry Pi 4.0 8gb  - https://github.com/pytorch/builder/pull/1370
+### Torch.optim:
+*  Fix fused AdamW causes NaN loss #95847
+* Fix Fused AdamW has worse loss than Apex and unfused AdamW for fp16/AMP #98620
+
+The [release tracker](https://github.com/pytorch/pytorch/issues/97272) should contain all relevant pull requests related to this release as well as links to related issues
