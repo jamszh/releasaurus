@@ -86,7 +86,7 @@ const config = {
         },
         items: [
           {to: '/releases', label: 'Release Notes', position: 'left'},
-          {to: '/docs/intro', label: 'Docusaurus', position: 'right'},
+          {to: '/docs/intro', label: 'Docs', position: 'right'},
           {
             href: 'https://github.com/jamszh/releasaurus',
             label: 'GitHub',

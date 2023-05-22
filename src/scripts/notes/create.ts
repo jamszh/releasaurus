@@ -32,9 +32,9 @@ const options: Omit<Arguments, '$0' | '_'> = {
 }
 
 const examples: [string, string][] = [
-  [`$0 -a your-auth-token -o jamszh -r releasaurus`, 'Create notes page for the latest release (single project)'],
-  [`$0 -a your-auth-token -o jamszh -r releasaurus -p ${releaseRoot}/dino-lib`, 'Create notes page for the latest release of "dino-lib"'],
-  [`$0 -a your-auth-token -o jamszh -r releasaurus -p ${releaseRoot}/dino-lib -v "1.0.0"`, 'Create notes page for v1.0.0'],
+  [`$0 -a your-auth-token -o jamszh -r dino-lib`, 'Create notes page for the latest release (single project)'],
+  [`$0 -a your-auth-token -o jamszh -r dino-lib -p ${releaseRoot}/dino-lib`, 'Create notes page for the latest release of "dino-lib"'],
+  [`$0 -a your-auth-token -o jamszh -r dino-lib -p ${releaseRoot}/dino-lib -v "1.0.0"`, 'Create notes page for v1.0.0'],
 ]
 
 function builder(yargs: Argv) {
