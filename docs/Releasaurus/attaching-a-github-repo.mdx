@@ -1,16 +1,18 @@
 ---
-title: Attach a Github Repo
+title: Attaching a Github Repo
 sidebar_position: 2
 ---
 
 ### Prerequisites
 
 - Releasaurus is all setup
-- The repository you want to attach is already automatically generating releases
+- The repository you want to attach is already automatically generating releases.
+  - If not, see how to [automate the CHANGELOG generation](automating-a-changelog)
 
-If not, read this.
 
 ### Adding a Github Workflow Action
+
+Simply add this file to the project you want to attach.
 
 ```yml title=".github/workflows/releasaurus"
 name: releasaurus
@@ -20,7 +22,7 @@ on:
     types: [published]
 
 jobs:
-  learn-please:
+  releasaurus:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -51,3 +53,9 @@ jobs:
         destination_repository: "jamszh/releasaurus" # Update with your own fork
         pr_allow_empty: true
 ```
+
+
+### What is this doing? TL;DR
+
+Whenever there is a new release, this Github action will checkout the latest version of your forked Releasaurus and pull the information of the latest release and create a PR.
+
