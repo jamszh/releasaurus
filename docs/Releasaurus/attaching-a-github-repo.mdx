@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        repository: "jamszh/releasaurus" # Update with your own fork
+        repository: "jamzsh/releasaurus" # Update with your own fork
         token: ${{ secrets.PAT }}
     - name: create-branch
       run: |
@@ -35,23 +35,21 @@ jobs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git checkout -b ${{ github.event.repository.name }}
         yarn install
-        yarn notes-please -a ${{ secrets.PAT }} -o ${{ github.org.login }} -r ${{ github.repository.name }} -p releases/${{ github.repository.name }}
-        git add releases/${{ github.repository.name}}/${{ github.event.release.tab_name}}-${{ github.repository.name}}.md
-        git commit -m "Release notes for ${{ github.event.release.tag_name }}-${{ github.repository.name }}"
+        yarn notes-please create -a ${{ secrets.PAT }} -r ${{ github.repository }} -p releases/${{ github.event.repository.name }}
+        git add releases/${{ github.event.repository.name }}/${{ github.event.release.tag_name }}-${{ github.event.repository.name }}.mdx
+        git commit -m "Release notes for ${{ github.event.release.tag_name }}-${{ github.event.repository.name }}"
         git push -u origin ${{ github.event.repository.name }}
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
-        pr_title: "Release notes for ${{ github.event.release.tag_name }}-${{ github.repository.name }}"
+        pr_title: "Release notes for ${{ github.event.release.tag_name }}-${{ github.event.repository.name }}"
         pr_body: |
           Release notes for Releasaurus
-
           I'm a :robot:
-        source_branch: ${{ github.repository.name }}
+        source_branch: ${{ github.event.repository.name }}
         destination_branch: "main"
         github_token: ${{ secrets.PAT }}
-        destination_repository: "jamszh/releasaurus" # Update with your own fork
-        pr_allow_empty: true
+        destination_repository: "jamzsh/releasaurus" # Update with your own fork
 ```
 
 
