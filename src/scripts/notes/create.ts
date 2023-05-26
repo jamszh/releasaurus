@@ -15,7 +15,6 @@ export default yargCommand
 type Arguments = {
   [x: string]: unknown;
   tag: string;
-  owner: string;
   path: string;
   repo: string;
   auth: string;
@@ -25,16 +24,15 @@ type Arguments = {
 
 const options: Omit<Arguments, '$0' | '_'> = {
   t: { type: 'string', describe: "specify release tag", alias: 'tag', default: 'latest' },
-  o: { type: 'string', describe: "Github repository owner", alias: 'owner', demandOption: true },
-  r: { type: 'string', describe: "Github repository name", alias: 'repo', demandOption: true },
+  r: { type: 'string', describe: "full Github repository name", alias: 'repo', demandOption: true },
   p: { type: 'string', describe: "Release notes path", alias: 'path', default: releaseRoot },
   a: { type: 'string', describe: "Github authentication token", alias: 'auth', demandOption: true },
 }
 
 const examples: [string, string][] = [
-  [`$0 -a your-auth-token -o jamszh -r dino-lib`, 'Create notes page for the latest release (single project)'],
-  [`$0 -a your-auth-token -o jamszh -r dino-lib -p ${releaseRoot}/dino-lib`, 'Create notes page for the latest release of "dino-lib"'],
-  [`$0 -a your-auth-token -o jamszh -r dino-lib -p ${releaseRoot}/dino-lib -v "1.0.0"`, 'Create notes page for v1.0.0'],
+  [`$0 -a your-auth-token -r lux-group/lib-logger`, 'Create notes page for the latest release (single project)'],
+  [`$0 -a your-auth-token -r lux-group/lib-logger -p ${releaseRoot}/lib-logger`, 'Create notes page for the latest release of "lib-logger"'],
+  [`$0 -a your-auth-token -r lux-group/lib-logger -p ${releaseRoot}/lib-logger -v "1.0.0"`, 'Create notes page for v1.0.0'],
 ]
 
 function builder(yargs: Argv) {
@@ -50,22 +48,31 @@ function check(argv: Arguments) {
   if (argv.path === releaseRoot) {
     return true
   }
+
   const pathSplits = argv.path.split('/')
   if (pathSplits[0] !== releaseRoot) {
     throw new Error("Invalid releasaurus path")
   }
+
+  const repoSplits = argv.repo.split('/')
+  if (repoSplits.length !== 2) {
+    throw new Error(`Invalid repository name ${argv.repo}`)
+  }
+
   return true
 }
 
 async function handler(argv: Arguments) {
   const github = init({ token: argv.auth })
-  const release = await github.getRelease(argv.owner, argv.repo)
+
+  const [owner, repoName] = argv.repo.split('/')
+  const release = await github.getRelease(owner, repoName, argv.tag)
 
   if (!release) {
     process.exit(0)
   }
 
-  const releaseName = `${release.tag_name}-${argv.repo}`
-  const pageContent = toPage(release, releaseName, argv.repo)
+  const releaseName = `${release.tag_name}-${repoName}`
+  const pageContent = toPage(release, releaseName, repoName)
   savePage(pageContent, argv.path, releaseName)
 }
