@@ -30,7 +30,7 @@ async function getRelease(
   }
 
   if (version === "latest") {
-    return [0]
+    return data[0]
   }
 
   const versionedRelease = data.find(release => release.tag_name === version)
