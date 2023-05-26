@@ -13,8 +13,8 @@ yarn install
 yarn start
 ```
 
-You can generate a new release notes page like so:
+Script features
 
 ```
-yarn notes-please -a <insert github token> -o pytorch -r pytorch
+yarn notes-please -h
 ```
